@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description:
       "010-5877-4440, 부산, 서면, 해운대, 동래, 남포동, 연산동, 광안리, 수영구, 김해, 양산, 부산역, 대연동, 기장, 사상, 하단, 덕천, 화명동, 정관, 센텀시티, 구서동, 범일동, 영도, 송도, 명지동, 민락동, 일광, 문현동 출장 마사지 서비스를 제공합니다. 010-5877-4440 30분 이내 신속 방문",
     url: siteUrl,
-    siteName: "부산 프리미엄 출장 마사지",
+    siteName: "부산 출장 마사지 서비스",
     images: [
       {
         url: "/faviconImages/apple-icon-180x180.png",
