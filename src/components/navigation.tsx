@@ -40,13 +40,12 @@ export function Navigation() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      홈
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    href="/"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    홈
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -91,13 +90,12 @@ export function Navigation() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link href="/#contact" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      연락처
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    href="/#contact"
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    연락처
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>

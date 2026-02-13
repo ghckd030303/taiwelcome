@@ -10,6 +10,7 @@ import {
   toSlug,
   getDisplayName,
 } from "@/lib/region-data";
+import { cn } from "@/lib/utils";
 
 interface RegionPageProps {
   params: Promise<{
@@ -106,24 +107,30 @@ export default async function RegionPage({ params }: RegionPageProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          <div
+            className={cn(
+              "gap-4",
+              cities.length < 4
+                ? "flex flex-wrap justify-center"
+                : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
+            )}
+          >
             {cities.map((city) => {
               const citySlug = toSlug(city);
               return (
-                <Link
+                <Button
                   key={city}
-                  href={`/region-guide/${regionSlug}/${citySlug}`}
+                  variant="outline"
+                  className="h-auto w-full flex-col gap-2 border-2 border-[var(--massage-coral-200)] bg-white py-6 text-base font-semibold transition-all hover:scale-105 hover:border-[var(--massage-coral-300)] hover:bg-[var(--massage-coral-100)] hover:shadow-lg sm:text-lg"
+                  asChild
                 >
-                  <Button
-                    variant="outline"
-                    className="h-auto w-full flex-col gap-2 border-2 border-[var(--massage-coral-200)] bg-white py-6 text-base font-semibold transition-all hover:scale-105 hover:border-[var(--massage-coral-300)] hover:bg-[var(--massage-coral-100)] hover:shadow-lg sm:text-lg"
-                  >
+                  <Link href={`/region-guide/${regionSlug}/${citySlug}`}>
                     <MapPin className="h-5 w-5 text-[var(--massage-coral-300)]" />
                     <span className="text-[var(--massage-brown-900)]">
                       {city.replace("창원시 ", "")}
                     </span>
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               );
             })}
           </div>
@@ -175,4 +182,3 @@ export default async function RegionPage({ params }: RegionPageProps) {
     </div>
   );
 }
-

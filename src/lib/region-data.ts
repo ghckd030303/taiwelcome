@@ -16,11 +16,6 @@ export function toSlug(name: string): string {
     부산광역시: "busan",
     김해시: "gimhae",
     양산시: "yangsan",
-    "창원시 마산합포구": "changwon-masanhappo",
-    "창원시 마산회원구": "changwon-masanhoewon",
-    "창원시 성산구": "changwon-seongsan",
-    "창원시 의창구": "changwon-uichang",
-    "창원시 진해구": "changwon-jinhae",
     강서구: "gangseo",
     금정구: "geumjeong",
     기장군: "gijang",
@@ -50,11 +45,6 @@ export function fromSlug(slug: string): string | undefined {
     busan: "부산광역시",
     gimhae: "김해시",
     yangsan: "양산시",
-    "changwon-masanhappo": "창원시 마산합포구",
-    "changwon-masanhoewon": "창원시 마산회원구",
-    "changwon-seongsan": "창원시 성산구",
-    "changwon-uichang": "창원시 의창구",
-    "changwon-jinhae": "창원시 진해구",
     gangseo: "강서구",
     geumjeong: "금정구",
     gijang: "기장군",
@@ -77,7 +67,7 @@ export function fromSlug(slug: string): string | undefined {
   if (reverseMap[slug]) {
     return reverseMap[slug];
   }
-  
+
   // 동 이름은 한글로 인코딩되어 있으므로 디코딩
   try {
     return decodeURIComponent(slug);
@@ -127,10 +117,7 @@ export function getCityBySlug(
 
 // 간단한 표시용 이름 (도/광역시 제거)
 export function getDisplayName(name: string): string {
-  return name
-    .replace("경상남도", "경남")
-    .replace("부산광역시", "부산")
-    .replace("창원시 ", "");
+  return name.replace("경상남도", "경남").replace("부산광역시", "부산");
 }
 
 // 모든 가능한 경로 조합 생성 (generateStaticParams용)
@@ -172,4 +159,3 @@ export function normalizeDongName(dong: string): string {
   // 아니면 '동'을 붙임
   return `${dong}동`;
 }
-

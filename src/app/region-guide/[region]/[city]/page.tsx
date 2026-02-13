@@ -132,20 +132,19 @@ export default async function CityPage({ params }: CityPageProps) {
             {dongs.map((dong) => {
               const dongSlug = toSlug(dong);
               return (
-                <Link
+                <Button
                   key={dong}
-                  href={`/region-guide/${regionSlug}/${citySlug}/${dongSlug}`}
+                  variant="outline"
+                  className="h-auto w-full flex-col gap-2 border-2 border-[var(--massage-coral-200)] bg-white py-5 text-sm font-semibold transition-all hover:scale-105 hover:border-[var(--massage-coral-300)] hover:bg-[var(--massage-coral-100)] hover:shadow-lg sm:text-base"
+                  asChild
                 >
-                  <Button
-                    variant="outline"
-                    className="h-auto w-full flex-col gap-2 border-2 border-[var(--massage-coral-200)] bg-white py-5 text-sm font-semibold transition-all hover:scale-105 hover:border-[var(--massage-coral-300)] hover:bg-[var(--massage-coral-100)] hover:shadow-lg sm:text-base"
-                  >
+                  <Link href={`/region-guide/${regionSlug}/${citySlug}/${dongSlug}`}>
                     <MapPin className="h-4 w-4 text-[var(--massage-coral-300)]" />
                     <span className="text-[var(--massage-brown-900)]">
                       {dong}
                     </span>
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               );
             })}
           </div>
