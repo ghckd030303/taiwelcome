@@ -25,13 +25,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // URL 경로 세그먼트 퍼센트 인코딩 (한글 등 비ASCII 처리)
+  const enc = (s: string) => encodeURIComponent(s);
+
   // 모든 지역 페이지 추가
   for (const province of getAllProvinces()) {
     const provinceSlug = toSlug(province);
 
     // 지역 메인 페이지 (경남, 부산)
     routes.push({
-      url: `${baseUrl}/region-guide/${provinceSlug}`,
+      url: `${baseUrl}/region-guide/${enc(provinceSlug)}`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.8,
@@ -44,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       // 시/구 페이지
       routes.push({
-        url: `${baseUrl}/region-guide/${provinceSlug}/${citySlug}`,
+        url: `${baseUrl}/region-guide/${enc(provinceSlug)}/${enc(citySlug)}`,
         lastModified: currentDate,
         changeFrequency: "weekly",
         priority: 0.7,
@@ -57,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         // 최종 동 페이지 (SEO 최적화 대상)
         routes.push({
-          url: `${baseUrl}/region-guide/${provinceSlug}/${citySlug}/${dongSlug}`,
+          url: `${baseUrl}/region-guide/${enc(provinceSlug)}/${enc(citySlug)}/${enc(dongSlug)}`,
           lastModified: currentDate,
           changeFrequency: "monthly",
           priority: 0.6,
