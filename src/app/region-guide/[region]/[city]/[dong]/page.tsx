@@ -8,6 +8,7 @@ import {
   fromSlug,
   getDisplayName,
 } from "@/lib/region-data";
+import { getDongDescription } from "@/lib/dong-descriptions";
 
 interface DongPageProps {
   params: Promise<{
@@ -84,6 +85,7 @@ export default async function DongPage({ params }: DongPageProps) {
   const { city } = cityResult;
   const displayProvince = getDisplayName(province);
   const fullLocation = `${displayProvince} ${city} ${dong}`;
+  const dongDescription = getDongDescription(city, dong);
 
   return (
     <DongPageContent
@@ -95,6 +97,7 @@ export default async function DongPage({ params }: DongPageProps) {
       dong={dong}
       displayProvince={displayProvince}
       fullLocation={fullLocation}
+      dongDescription={dongDescription}
     />
   );
 }

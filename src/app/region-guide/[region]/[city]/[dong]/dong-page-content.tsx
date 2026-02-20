@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,8 +13,6 @@ import {
   CreditCard,
   Banknote,
   Wallet,
-  ChevronDown,
-  ChevronUp,
   Shield,
   Users,
   CheckCircle,
@@ -37,6 +34,7 @@ interface DongPageContentProps {
   dong: string;
   displayProvince: string;
   fullLocation: string;
+  dongDescription: string;
 }
 
 export function DongPageContent({
@@ -46,8 +44,8 @@ export function DongPageContent({
   dong,
   displayProvince,
   fullLocation,
+  dongDescription,
 }: DongPageContentProps) {
-  const [isContentExpanded, setIsContentExpanded] = useState(false);
   const phoneNumber = "010-5877-4440";
   const telLink = `tel:${phoneNumber}`;
 
@@ -81,8 +79,8 @@ export function DongPageContent({
             <br />
             <span className="text-[var(--massage-coral-300)]">출장 마사지</span>
           </h2>
-          <p className="mb-8 text-center text-lg text-[var(--massage-brown-700)] sm:text-xl">
-            프리미엄 힐링 케어 서비스
+          <p className="mb-8 text-center text-base leading-relaxed text-[var(--massage-brown-700)] sm:text-lg">
+            {dongDescription}
           </p>
 
           {/* CTA 버튼 */}
@@ -519,33 +517,15 @@ export function DongPageContent({
       {/* SEO 콘텐츠 섹션 */}
       <section className="bg-[var(--massage-beige-200)] px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          {/* 더보기 버튼 */}
-          <div className="mb-6 flex justify-center">
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => setIsContentExpanded(!isContentExpanded)}
-              className="group gap-2 border-[var(--massage-coral-200)] bg-white/80 text-[var(--massage-brown-900)] transition-all hover:bg-[var(--massage-coral-100)] hover:shadow-md"
-            >
-              <span className="font-semibold">
-                {isContentExpanded ? "접기" : "서비스 상세정보 보기"}
+          {/* <details>를 사용해 콘텐츠가 항상 DOM에 존재하여 검색엔진이 완전히 색인할 수 있도록 함 */}
+          <details className="group" open>
+            <summary className="mb-6 flex cursor-pointer list-none justify-center">
+              <span className="inline-flex items-center gap-2 rounded-md border border-[var(--massage-coral-200)] bg-white/80 px-6 py-3 text-base font-semibold text-[var(--massage-brown-900)] transition-all hover:bg-[var(--massage-coral-100)] hover:shadow-md">
+                <span className="group-open:hidden">서비스 상세정보 보기</span>
+                <span className="hidden group-open:inline">접기</span>
               </span>
-              {isContentExpanded ? (
-                <ChevronUp className="h-5 w-5 transition-transform group-hover:-translate-y-1" />
-              ) : (
-                <ChevronDown className="h-5 w-5 transition-transform group-hover:translate-y-1" />
-              )}
-            </Button>
-          </div>
+            </summary>
 
-          {/* 토글 가능한 SEO 콘텐츠 */}
-          <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${
-              isContentExpanded
-                ? "max-h-[10000px] opacity-100"
-                : "max-h-0 opacity-0"
-            }`}
-          >
             <div className="space-y-8 text-sm leading-relaxed text-[var(--massage-brown-700)] sm:text-base">
               {/* 지역 소개 */}
               <div className="space-y-3">
@@ -729,7 +709,7 @@ export function DongPageContent({
                 </p>
               </div>
             </div>
-          </div>
+          </details>
         </div>
       </section>
     </div>
