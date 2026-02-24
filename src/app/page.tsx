@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import {
   CreditCard,
   Banknote,
@@ -7,6 +8,7 @@ import {
   Clock,
   ChevronDown,
   ChevronUp,
+  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Lottie from "lottie-react";
@@ -121,12 +123,23 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex items-center gap-3 rounded-full bg-white/90 px-8 py-4 shadow-md backdrop-blur-sm">
-                {/* <Clock className="h-7 w-7 text-[var(--massage-coral-300)] sm:h-8 sm:w-8" /> */}
                 <Clock className="h-7 w-7 text-[var(--massage-coral-300)] sm:h-8 sm:w-8" />
                 <span className="text-xl font-bold text-[var(--massage-brown-900)] sm:text-2xl">
                   30분 이내 방문
                 </span>
               </div>
+
+              {/* 전체 지역 목록 보기 버튼 */}
+              <Link href="/all-regions">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-auto gap-2 border-2 border-white bg-white/20 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[var(--massage-brown-900)] sm:px-10 sm:text-xl"
+                >
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6" />
+                  전체 지역 목록 보기
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
