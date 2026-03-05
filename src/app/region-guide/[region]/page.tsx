@@ -33,6 +33,8 @@ export async function generateMetadata({
   const displayName = getDisplayName(province);
   const cities = getCitiesByProvince(province);
   const cityNames = cities.slice(0, 5).join(", ");
+  const siteUrl = "https://taiwelcome.vercel.app";
+  const canonicalUrl = `${siteUrl}/region-guide/${regionSlug}`;
 
   return {
     title: `${displayName} 출장 마사지 - 전지역 30분 이내 방문 | ${cityNames}`,
@@ -44,10 +46,14 @@ export async function generateMetadata({
       "스웨디시 마사지",
       "출장 관리사",
     ],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: `${displayName} 출장 마사지 - 전지역 서비스`,
       description: `${displayName} ${cityNames} 등 전지역 30분 이내 방문`,
       type: "website",
+      url: canonicalUrl,
     },
   };
 }

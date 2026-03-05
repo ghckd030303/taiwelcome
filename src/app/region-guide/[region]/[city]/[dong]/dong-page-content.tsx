@@ -24,6 +24,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { getAreaType } from "@/lib/area-type";
+import { seoTemplates, renderTemplate } from "@/lib/seo-templates";
 
 interface DongPageContentProps {
   regionSlug: string;
@@ -48,6 +50,9 @@ export function DongPageContent({
 }: DongPageContentProps) {
   const phoneNumber = "010-5877-4440";
   const telLink = `tel:${phoneNumber}`;
+  const areaType = getAreaType(city, dong);
+  const tmpl = seoTemplates[areaType];
+  const r = (text: string) => renderTemplate(text, dong, city, fullLocation);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--massage-beige-200)] via-white to-[var(--massage-coral-100)]">
@@ -527,186 +532,81 @@ export function DongPageContent({
             </summary>
 
             <div className="space-y-8 text-sm leading-relaxed text-[var(--massage-brown-700)] sm:text-base">
-              {/* 지역 소개 */}
               <div className="space-y-3">
                 <h3 className="text-lg font-semibold text-[var(--massage-brown-900)] sm:text-xl">
-                  {fullLocation} 출장 마사지 서비스
+                  {r(tmpl.intro.title)}
                 </h3>
-                <p>
-                  {fullLocation} 지역에서 최고의 출장 마사지 서비스를
-                  제공합니다. {dong}은(는) {city}의 대표적인 지역으로, 많은
-                  고객님들이 일상의 피로와 스트레스로 지쳐 있습니다. 저희는{" "}
-                  {fullLocation} 전지역을 대상으로 30분 이내에 신속하게
-                  방문하여, 고객님의 집이나 호텔에서 편안하게 프리미엄 마사지
-                  서비스를 받으실 수 있도록 도와드립니다.
-                </p>
+                <p>{r(tmpl.intro.body)}</p>
               </div>
 
-              {/* 아로마 마사지 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 아로마 마사지 - 향기로운 힐링
+                  {r(tmpl.aroma.title)}
                 </h3>
-                <p>
-                  {fullLocation} 아로마 마사지는 천연 에센셜 오일을 사용하여
-                  심신의 안정과 이완을 돕는 프리미엄 케어입니다. {dong}
-                  지역에서 아로마 마사지를 받으시면, 라벤더, 유칼립투스,
-                  로즈마리 등 다양한 향의 오일 중 고객님의 상태와 선호에 맞는
-                  오일을 선택하여 맞춤형 서비스를 제공해드립니다. 아로마테라피는
-                  후각을 통해 뇌를 자극하여 스트레스 해소, 불안 완화, 수면 개선
-                  등에 탁월한 효과가 있으며, {fullLocation}에서 편안하게 받으실
-                  수 있습니다.
-                </p>
+                <p>{r(tmpl.aroma.body)}</p>
               </div>
 
-              {/* 스웨디시 마사지 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 스웨디시 마사지 - 근육 이완의 정석
+                  {r(tmpl.swedish.title)}
                 </h3>
-                <p>
-                  {fullLocation} 스웨디시 마사지는 서양 마사지의 대표적인
-                  기법으로, 근육의 긴장을 풀고 혈액순환을 촉진하는 데 매우
-                  효과적입니다. {dong} 지역의 직장인, 학생, 주부 등 모든
-                  분들께서 일상생활과 업무로 인해 쌓인 근육의 피로를 스웨디시
-                  마사지로 풀어보실 수 있습니다. 전문 테라피스트가 고객님의 몸
-                  상태를 체크하여 적절한 강도로 마사지를 진행하며, 특히 어깨,
-                  목, 허리 등 통증이 심한 부위를 집중적으로 케어해드립니다.{" "}
-                  {fullLocation} 스웨디시 마사지로 새로운 활력을 되찾으세요.
-                </p>
+                <p>{r(tmpl.swedish.body)}</p>
               </div>
 
-              {/* 섹슈얼 케어 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 섹슈얼 케어 - 프라이빗 힐링
+                  {r(tmpl.sexual.title)}
                 </h3>
-                <p>
-                  {fullLocation} 섹슈얼 케어 마사지는 프라이빗한 공간에서
-                  제공되는 특별한 힐링 서비스입니다. {dong} 지역 고객님들께
-                  심신의 긴장을 완전히 풀고 편안한 휴식을 취하실 수 있도록
-                  세심한 케어를 제공합니다. 모든 서비스는 고객님의 프라이버시를
-                  최우선으로 하며, 안전하고 청결한 환경에서 진행됩니다.{" "}
-                  {fullLocation}에서 일상의 스트레스를 잊고 진정한 힐링을
-                  경험해보세요.
-                </p>
+                <p>{r(tmpl.sexual.body)}</p>
               </div>
 
-              {/* 20대 관리사 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 20대 전문 관리사 - 젊고 숙련된 테라피스트
+                  {r(tmpl.therapist.title)}
                 </h3>
-                <p>
-                  {fullLocation} 출장 마사지 서비스는 20대 젊고 아름다운 전문
-                  관리사들이 직접 방문하여 서비스를 제공합니다. {dong} 지역
-                  고객님들께서는 젊은 테라피스트의 활기차고 세심한 손길로 피로를
-                  풀어보실 수 있습니다. 모든 관리사는 전문 교육을 이수하였으며,
-                  고객 응대 및 마사지 기술에 있어 높은 수준을 자랑합니다. 친절한
-                  서비스와 프로페셔널한 기술을 동시에 경험하실 수 있는{" "}
-                  {fullLocation} 출장 마사지를 이용해보세요.
-                </p>
+                <p>{r(tmpl.therapist.body)}</p>
               </div>
 
-              {/* 서비스 이용 안내 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 출장 마사지 이용 방법
+                  {r(tmpl.howto.title)}
                 </h3>
-                <p>
-                  {fullLocation} 출장 마사지 예약은 매우 간단합니다. 전화 한
-                  통으로 손쉽게 예약하실 수 있으며, 예약 후 30분 이내에 {dong}{" "}
-                  고객님께서 원하시는 장소로 방문해드립니다. 자택, 호텔,
-                  오피스텔 등 어디든 가능하며, 개인 공간에서 편안하게 서비스를
-                  받으실 수 있습니다. 결제는 현금, 카드, 계좌이체 등 다양한
-                  방법으로 가능하여 편리하게 이용하실 수 있습니다.{" "}
-                  {fullLocation}
-                  고객님들의 만족을 위해 항상 최선을 다하겠습니다.
-                </p>
+                <p>{r(tmpl.howto.body)}</p>
               </div>
 
-              {/* 서비스 특징 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 출장 마사지의 장점
+                  {r(tmpl.advantage.title)}
                 </h3>
-                <p>
-                  {fullLocation} 출장 마사지의 가장 큰 장점은 고객님께서
-                  이동하지 않고 편안한 공간에서 서비스를 받으실 수 있다는
-                  점입니다. {dong}
-                  지역은 교통이 혼잡하거나 주차가 어려운 경우가 많아, 마사지
-                  샵을 방문하는 것이 번거로울 수 있습니다. 저희 출장 마사지
-                  서비스를 이용하시면 그런 불편함 없이 집에서 편안하게 힐링을
-                  즐기실 수 있습니다. 또한, 프라이빗한 공간에서 받는 마사지는
-                  더욱 깊은 휴식과 안정감을 선사합니다. {fullLocation} 출장
-                  마사지로 특별한 힐링 경험을 만들어보세요.
-                </p>
+                <p>{r(tmpl.advantage.body)}</p>
               </div>
 
-              {/* 출장 마사지 vs 일반 마사지 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 출장 마사지가 특별한 이유
+                  {r(tmpl.whyspecial.title)}
                 </h3>
-                <p>
-                  일반 마사지 샵과 달리 {fullLocation} 출장 마사지는 고객님의
-                  공간에서 진행되기 때문에 이동 시간과 번거로움이 없습니다. 대기
-                  시간도 없으며, 예약 시간에 정확히 방문하여 즉시 서비스를
-                  시작합니다. {dong} 지역 고객님들께서는 샤워 후 바로 휴식을
-                  취하실 수 있으며, 마사지 후에도 외출 준비 없이 편안하게 쉬실
-                  수 있습니다. 출장 마사지는 시간과 에너지를 절약하면서도 최고
-                  품질의 마사지를 받을 수 있는 현명한 선택입니다.
-                </p>
+                <p>{r(tmpl.whyspecial.body)}</p>
               </div>
 
-              {/* 마사지 효과 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 마사지의 건강 효과
+                  {r(tmpl.health.title)}
                 </h3>
-                <p>
-                  {fullLocation} 마사지는 단순한 휴식을 넘어 건강 증진에도 큰
-                  도움이 됩니다. 정기적인 마사지는 혈액순환 개선, 면역력 강화,
-                  스트레스 호르몬 감소, 수면의 질 향상 등 다양한 긍정적 효과를
-                  가져옵니다. 특히 {dong} 지역처럼 바쁜 도시 생활을 하시는
-                  분들께는 주기적인 마사지가 건강 관리에 필수적입니다. 출장
-                  마사지를 통해 편리하게 건강을 챙기세요. 근육통, 두통, 만성
-                  피로 등의 증상이 있으신 분들께 특히 추천드립니다.
-                </p>
+                <p>{r(tmpl.health.body)}</p>
               </div>
 
-              {/* 고객 후기 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 고객님들의 만족 후기
+                  {r(tmpl.review.title)}
                 </h3>
-                <p>
-                  {fullLocation} 출장 마사지를 이용하신 고객님들께서 가장 많이
-                  말씀하시는 것은 &ldquo;편리함&rdquo;과 &ldquo;전문성&rdquo;입니다. {dong} 지역
-                  고객님들은 집에서 편안하게 받는 서비스에 매우 만족하시며,
-                  관리사의 숙련된 기술과 친절한 응대에 높은 평가를 주십니다.
-                  특히 아로마 마사지와 스웨디시 마사지의 효과에 대해 많은 분들이
-                  재예약을 하십니다. 출장 마사지 한 번 경험하시면 일반 마사지
-                  샵으로 다시 돌아가기 어렵다는 후기가 많습니다. {fullLocation}
-                  주민 여러분의 건강과 휴식을 책임지겠습니다.
-                </p>
+                <p>{r(tmpl.review.body)}</p>
               </div>
 
-              {/* 예약 팁 */}
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {dong} 출장 마사지 예약 팁
+                  {r(tmpl.bookingtip.title)}
                 </h3>
-                <p>
-                  {fullLocation} 출장 마사지를 예약하실 때는 원하시는 마사지
-                  종류와 시간대를 미리 생각해두시면 좋습니다. 아로마 마사지는
-                  휴식과 안정에, 스웨디시 마사지는 근육 이완에 효과적입니다.
-                  {dong} 지역은 인기가 많아 주말이나 저녁 시간대는 예약이 빠르게
-                  마감될 수 있으니 미리 예약하시는 것을 추천드립니다. 첫 이용
-                  고객님께는 특별 할인 혜택도 있으니 전화 시 꼭 말씀해주세요.
-                  출장 마사지 전에는 가벼운 샤워를 하시면 더욱 효과가 좋으며,
-                  마사지 후에는 충분한 수분 섭취를 권장합니다.
-                </p>
+                <p>{r(tmpl.bookingtip.body)}</p>
               </div>
             </div>
           </details>
