@@ -245,7 +245,7 @@ export function DongPageContent({
           <div className="grid gap-6 md:grid-cols-2">
             <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-xl sm:h-[400px]">
               <Image
-                src="/images/image.png"
+                src="/images/bs1.png"
                 alt={`${fullLocation} 출장 마사지 프리미엄 케어`}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
@@ -254,7 +254,7 @@ export function DongPageContent({
             </div>
             <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-xl sm:h-[400px]">
               <Image
-                src="/images/image2.png"
+                src="/images/bs2.png"
                 alt={`${fullLocation} 출장 마사지 전문 테라피스트`}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
@@ -309,12 +309,12 @@ export function DongPageContent({
                 </div>
               </div>
               <h3 className="mb-3 text-xl font-bold text-[var(--massage-brown-900)]">
-                100% 만족 보장
+                상담 기반 사후 응대
               </h3>
               <p className="text-[var(--massage-brown-700)]">
-                {fullLocation}에서 최고의 힐링 경험을 약속드립니다. 서비스에
-                만족하지 못하신 경우 적극적으로 개선해드리며, 고객 만족을
-                최우선으로 합니다.
+                {fullLocation}에서 이용 전 컨디션과 요청 사항을 먼저 확인합니다.
+                이용 중 불편한 점이 있으면 바로 조율할 수 있도록 상담 응대를
+                중요하게 관리합니다.
               </p>
             </div>
           </div>
@@ -469,19 +469,19 @@ export function DongPageContent({
           <div className="grid gap-8 md:grid-cols-2">
             <div className="rounded-2xl bg-white/90 p-8 backdrop-blur-sm">
               <h3 className="mb-4 text-xl font-bold text-[var(--massage-brown-900)]">
-                📍 서비스 지역
+                서비스 지역
               </h3>
               <p className="mb-3 text-[var(--massage-brown-700)]">
                 {fullLocation} 전지역 출장 가능
               </p>
               <p className="text-sm text-[var(--massage-brown-700)]">
-                자택, 호텔, 오피스텔, 원룸 등 고객님이 편안한 모든 장소에
+                자택, 호텔, 오피스텔, 원룸 등 고객님이 편안한 모든 지역에
                 방문합니다. {city} 내 다른 지역도 서비스 가능하니 문의해주세요.
               </p>
             </div>
             <div className="rounded-2xl bg-white/90 p-8 backdrop-blur-sm">
               <h3 className="mb-4 text-xl font-bold text-[var(--massage-brown-900)]">
-                ⏰ 영업 시간
+                영업 시간
               </h3>
               <p className="mb-3 text-[var(--massage-brown-700)]">
                 오전 00시 ~ 오후 24시 (연중무휴)
@@ -493,7 +493,7 @@ export function DongPageContent({
             </div>
             <div className="rounded-2xl bg-white/90 p-8 backdrop-blur-sm">
               <h3 className="mb-4 text-xl font-bold text-[var(--massage-brown-900)]">
-                💳 결제 방법
+                결제 방법
               </h3>
               <p className="mb-3 text-[var(--massage-brown-700)]">
                 현금, 카드, 계좌이체 모두 가능
@@ -505,7 +505,7 @@ export function DongPageContent({
             </div>
             <div className="rounded-2xl bg-white/90 p-8 backdrop-blur-sm">
               <h3 className="mb-4 text-xl font-bold text-[var(--massage-brown-900)]">
-                🎯 이용 방법
+                이용 방법
               </h3>
               <p className="mb-3 text-[var(--massage-brown-700)]">
                 1. 전화 예약 → 2. 빠른 방문 → 3. 서비스 제공
@@ -597,9 +597,14 @@ export function DongPageContent({
 
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {r(tmpl.review.title)}
+                  {dong} 실제 후기 게시 기준
                 </h3>
-                <p>{r(tmpl.review.body)}</p>
+                <p>
+                  {fullLocation} 관련 후기는 실제 이용 후 전달받은 내용만 확인해
+                  게시할 수 있습니다. 과장된 별점, 가상 인물 후기, 확인되지 않은
+                  재예약률 문구는 사용하지 않으며, 방문 전 궁금한 점은 전화
+                  상담에서 바로 확인하실 수 있습니다.
+                </p>
               </div>
 
               <div className="space-y-3">

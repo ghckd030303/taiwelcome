@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/booking`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/regions`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -90,4 +96,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes;
 }
-
