@@ -9,7 +9,7 @@ import {
   Sparkles,
   Heart,
   Droplets,
-  Flame,
+  Activity,
   CreditCard,
   Banknote,
   Wallet,
@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/accordion";
 import { getAreaType } from "@/lib/area-type";
 import { seoTemplates, renderTemplate } from "@/lib/seo-templates";
+import { PHONE_NUMBER, PHONE_TEL_HREF } from "@/lib/site-config";
 
 interface DongPageContentProps {
   regionSlug: string;
@@ -48,8 +49,8 @@ export function DongPageContent({
   fullLocation,
   dongDescription,
 }: DongPageContentProps) {
-  const phoneNumber = "010-5877-4440";
-  const telLink = `tel:${phoneNumber}`;
+  const phoneNumber = PHONE_NUMBER;
+  const telLink = PHONE_TEL_HREF;
   const areaType = getAreaType(city, dong);
   const tmpl = seoTemplates[areaType];
   const r = (text: string) => renderTemplate(text, dong, city, fullLocation);
@@ -67,8 +68,7 @@ export function DongPageContent({
 
       {/* SEO H1 */}
       <h1 className="sr-only">
-        {fullLocation} 출장 마사지 - 30분 이내 방문, 20대 전문 관리사, 아로마,
-        스웨디시, 섹슈얼 케어
+        {fullLocation} 출장 마사지 - 30분 이내 방문, 전문 테라피스트의 아로마, 스웨디시, 딥티슈 마사지
       </h1>
 
       {/* 히어로 섹션 */}
@@ -112,7 +112,7 @@ export function DongPageContent({
             <div className="flex items-center gap-2 rounded-full bg-white px-6 py-3 shadow-md">
               <Heart className="h-5 w-5 text-[var(--massage-coral-300)]" />
               <span className="font-semibold text-[var(--massage-brown-900)]">
-                20대 전문 관리사
+                전문 테라피스트
               </span>
             </div>
           </div>
@@ -157,22 +157,22 @@ export function DongPageContent({
               </p>
             </div>
 
-            {/* 섹슈얼 케어 */}
+            {/* 딥티슈 마사지 */}
             <div className="group rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <div className="mb-4 flex justify-center">
                 <div className="rounded-full bg-gradient-to-br from-rose-100 to-rose-200 p-4 transition-transform group-hover:scale-110">
-                  <Flame className="h-8 w-8 text-rose-600" />
+                  <Activity className="h-8 w-8 text-rose-600" />
                 </div>
               </div>
               <h3 className="mb-2 text-center text-xl font-bold text-[var(--massage-brown-900)]">
-                섹슈얼 케어
+                딥티슈 마사지
               </h3>
               <p className="text-center text-sm text-[var(--massage-brown-700)]">
-                프라이빗한 공간에서의 특별한 힐링 경험
+                뭉친 근육을 깊고 세심하게 이완하는 맞춤 케어
               </p>
             </div>
 
-            {/* 20대 관리사 */}
+            {/* 전문 테라피스트 */}
             <div className="group rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
               <div className="mb-4 flex justify-center">
                 <div className="rounded-full bg-gradient-to-br from-amber-100 to-amber-200 p-4 transition-transform group-hover:scale-110">
@@ -180,10 +180,10 @@ export function DongPageContent({
                 </div>
               </div>
               <h3 className="mb-2 text-center text-xl font-bold text-[var(--massage-brown-900)]">
-                20대 관리사
+                전문 테라피스트
               </h3>
               <p className="text-center text-sm text-[var(--massage-brown-700)]">
-                전문 교육을 받은 젊고 숙련된 테라피스트
+                전문 교육과 위생 수칙을 갖춘 숙련된 테라피스트
               </p>
             </div>
           </div>
@@ -255,7 +255,7 @@ export function DongPageContent({
             <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-xl sm:h-[400px]">
               <Image
                 src="/images/image2.png"
-                alt={`${fullLocation} 출장 마사지 전문 관리사`}
+                alt={`${fullLocation} 출장 마사지 전문 테라피스트`}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -381,7 +381,7 @@ export function DongPageContent({
                 관리사는 어떤 분들인가요?
               </AccordionTrigger>
               <AccordionContent className="text-[var(--massage-brown-700)]">
-                {dong} 출장 마사지는 20대 전문 관리사들이 서비스를 제공합니다.
+                {dong} 출장 마사지는 전문 테라피스트들이 서비스를 제공합니다.
                 모든 테라피스트는 전문 교육을 이수하였으며, 아로마, 스웨디시 등
                 다양한 마사지 기법에 능숙합니다. 친절하고 프로페셔널한 서비스로
                 고객님의 만족을 최우선으로 합니다.
@@ -555,9 +555,9 @@ export function DongPageContent({
 
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-[var(--massage-brown-900)] sm:text-lg">
-                  {r(tmpl.sexual.title)}
+                  {r(tmpl.deepTissue.title)}
                 </h3>
-                <p>{r(tmpl.sexual.body)}</p>
+                <p>{r(tmpl.deepTissue.body)}</p>
               </div>
 
               <div className="space-y-3">

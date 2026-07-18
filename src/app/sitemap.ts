@@ -5,9 +5,10 @@ import {
   getDongsByCity,
   toSlug,
 } from "@/lib/region-data";
+import { SITE_URL } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://taiwelcome.vercel.app"; // 실제 도메인으로 변경 필요
+  const baseUrl = SITE_URL;
   const currentDate = new Date();
 
   const routes: MetadataRoute.Sitemap = [
@@ -18,16 +19,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/region-guide`,
+      url: `${baseUrl}/course`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/regions`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/all-regions`,
+      url: `${baseUrl}/guide`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/region-guide`,
       lastModified: currentDate,
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.7,
     },
   ];
 

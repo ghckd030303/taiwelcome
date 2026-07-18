@@ -3,25 +3,19 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
 import { RegionBreadcrumb } from "@/components/region-breadcrumb";
+import { SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "지역안내 - 부산 경남 출장 마사지 서비스 | 전지역 30분 이내 방문",
+  title: "지역별 상세 안내",
   description:
-    "부산, 경남 전지역 출장 마사지 서비스 안내. 서면, 해운대, 김해, 양산, 창원 등 모든 지역에서 30분 이내 신속 방문. 전문 테라피스트의 프리미엄 케어 서비스.",
-  keywords: [
-    "부산 출장마사지",
-    "경남 출장마사지",
-    "서면 마사지",
-    "해운대 마사지",
-    "김해 마사지",
-    "양산 마사지",
-    "창원 마사지",
-    "지역별 마사지",
-  ],
+    "부산, 경남 전 지역 출장 마사지 서비스를 시/구/동 단위로 확인하실 수 있는 지역별 상세 안내입니다.",
+  alternates: {
+    canonical: `${SITE_URL}/region-guide`,
+  },
   openGraph: {
-    title: "지역안내 - 부산 경남 출장 마사지 서비스",
-    description:
-      "부산, 경남 전지역 출장 마사지 서비스 안내. 30분 이내 신속 방문.",
+    title: "지역별 상세 안내",
+    description: "부산, 경남 전 지역 출장 마사지 서비스 지역별 상세 안내",
+    url: `${SITE_URL}/region-guide`,
     type: "website",
   },
 };
@@ -131,7 +125,7 @@ export default function RegionGuidePage() {
                 전문 테라피스트
               </p>
               <p className="mt-2 text-sm text-[var(--massage-brown-700)]">
-                20대 관리사
+                전문 테라피스트
               </p>
             </div>
             <div className="rounded-xl bg-white/80 p-6 backdrop-blur-sm">

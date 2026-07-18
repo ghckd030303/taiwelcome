@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, ChevronRight } from "lucide-react";
+import { MapPin, ChevronRight, Clock } from "lucide-react";
 import { RegionBreadcrumb } from "@/components/region-breadcrumb";
 import {
   getAllProvinces,
@@ -9,35 +9,30 @@ import {
   toSlug,
   getDisplayName,
 } from "@/lib/region-data";
+import { PHONE_NUMBER, PHONE_TEL_HREF, SITE_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "전체 지역 목록 - 부산 경남 출장 마사지 서비스",
+  title: "서비스 지역 안내",
   description:
-    "부산·경남 전체 지역 출장 마사지 서비스 목록. 부산진구, 해운대구, 김해시, 양산시 등 모든 동/읍/면까지 30분 이내 방문. 지역별 상세 안내 바로 확인.",
-  keywords: [
-    "부산 출장마사지 전체지역",
-    "경남 출장마사지 전체지역",
-    "부산 동별 마사지",
-    "김해 동별 마사지",
-    "양산 동별 마사지",
-    "출장마사지 지역목록",
-  ],
+    "부산 전 지역 30분 이내 방문 가능한 출장 마사지 서비스 지역입니다. 원하시는 지역을 선택하시면 상세 안내로 이동합니다.",
+  alternates: {
+    canonical: `${SITE_URL}/regions`,
+  },
   openGraph: {
-    title: "전체 지역 목록 - 부산 경남 출장 마사지",
-    description:
-      "부산·경남 전체 지역 출장 마사지 서비스 목록. 모든 동까지 30분 이내 방문.",
+    title: "서비스 지역 안내",
+    description: "부산 전 지역 30분 이내 방문 가능한 출장 마사지 서비스 지역",
+    url: `${SITE_URL}/regions`,
     type: "website",
   },
 };
 
-export default function AllRegionsPage() {
+export default function RegionsPage() {
   const provinces = getAllProvinces();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--massage-beige-200)] via-white to-[var(--massage-coral-100)]">
-      <RegionBreadcrumb segments={[{ label: "전체 지역 목록" }]} />
+      <RegionBreadcrumb segments={[{ label: "서비스 지역" }]} />
 
-      {/* 헤더 섹션 */}
       <section className="px-4 py-12 sm:px-6 lg:py-16">
         <div className="mx-auto max-w-5xl text-center">
           <div className="mb-6 flex justify-center">
@@ -46,18 +41,25 @@ export default function AllRegionsPage() {
             </div>
           </div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-[var(--massage-brown-900)] sm:text-5xl">
-            전체 지역 목록
+            서비스 지역 안내
           </h1>
           <p className="mb-2 text-lg text-[var(--massage-brown-700)] sm:text-xl">
-            부산·경남 전지역 출장 마사지 서비스
+            부산 전 지역 30분 이내 방문이 가능합니다
           </p>
           <p className="text-base text-[var(--massage-brown-600)]">
             원하시는 지역을 선택하시면 상세 안내로 이동합니다
           </p>
+          <div className="mt-6 flex justify-center">
+            <div className="flex items-center gap-3 rounded-full bg-white/90 px-6 py-3 shadow-md">
+              <Clock className="h-5 w-5 text-[var(--massage-coral-300)]" />
+              <span className="font-semibold text-[var(--massage-brown-900)]">
+                30분 이내 방문
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 지역 목록 섹션 */}
       <section className="px-4 pb-20 sm:px-6">
         <div className="mx-auto max-w-5xl space-y-12">
           {provinces.map((province) => {
@@ -66,8 +68,7 @@ export default function AllRegionsPage() {
             const cities = getCitiesByProvince(province);
 
             return (
-              <div key={province}>
-                {/* 광역시/도 헤더 */}
+              <article key={province}>
                 <div className="mb-6 flex items-center gap-3">
                   <Link
                     href={`/region-guide/${provinceSlug}`}
@@ -80,7 +81,6 @@ export default function AllRegionsPage() {
                   </Link>
                 </div>
 
-                {/* 시/구 목록 */}
                 <div className="space-y-8">
                   {cities.map((city) => {
                     const citySlug = toSlug(city);
@@ -91,7 +91,6 @@ export default function AllRegionsPage() {
                         key={city}
                         className="rounded-2xl border border-[var(--massage-beige-300)] bg-white p-6 shadow-sm sm:p-8"
                       >
-                        {/* 시/구 헤더 */}
                         <Link
                           href={`/region-guide/${provinceSlug}/${citySlug}`}
                           className="group mb-4 flex items-center gap-2"
@@ -106,7 +105,6 @@ export default function AllRegionsPage() {
                           <ChevronRight className="h-4 w-4 text-[var(--massage-coral-200)] transition-colors group-hover:text-[var(--massage-coral-300)]" />
                         </Link>
 
-                        {/* 동/읍/면 목록 */}
                         <div className="flex flex-wrap gap-2">
                           {dongs.map((dong) => {
                             const dongSlug = toSlug(dong);
@@ -125,13 +123,12 @@ export default function AllRegionsPage() {
                     );
                   })}
                 </div>
-              </div>
+              </article>
             );
           })}
         </div>
       </section>
 
-      {/* 하단 CTA */}
       <section className="bg-gradient-to-r from-[var(--massage-coral-100)] to-[var(--massage-beige-200)] px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-4xl text-center">
           <p className="mb-2 text-lg font-semibold text-[var(--massage-brown-900)] sm:text-xl">
@@ -140,10 +137,10 @@ export default function AllRegionsPage() {
           <p className="mb-6 text-[var(--massage-brown-700)]">
             전화 주시면 방문 가능 여부를 바로 안내해드립니다
           </p>
-          <a href="tel:010-5877-4440">
-            <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#eb5459] to-orange-300 px-10 py-5 text-2xl font-bold text-white shadow-xl transition-all hover:shadow-2xl sm:px-14 sm:text-3xl">
-              010-5877-4440
-            </div>
+          <a href={PHONE_TEL_HREF} aria-label={`전화 문의 ${PHONE_NUMBER}`}>
+            <span className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#eb5459] to-orange-300 px-10 py-5 text-2xl font-bold text-white shadow-xl transition-all hover:shadow-2xl sm:px-14 sm:text-3xl">
+              {PHONE_NUMBER}
+            </span>
           </a>
         </div>
       </section>

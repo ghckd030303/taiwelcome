@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_NAME,
+  PHONE_INTL,
+  SITE_URL,
+} from "@/lib/site-config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,18 +20,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://taiwelcome.vercel.app"; // 실제 배포된 도메인으로 변경 필요
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "부산 출장 마사지 - 전지역 24시간 30분 이내 방문 서비스",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${BUSINESS_NAME} - 부산 전 지역 30분 이내 방문 출장 마사지`,
+    template: `%s | ${BUSINESS_NAME}`,
+  },
   description:
-    "OlO.5877.4440, 부산, 서면, 해운대, 동래, 남포동, 연산동, 광안리, 수영구, 김해, 양산, 부산역, 대연동, 기장, 사상, 하단, 덕천, 화명동, 정관, 센텀시티, 구서동, 범일동, 영도, 송도, 명지동, 민락동, 일광, 문현동 출장 마사지 서비스를 제공합니다. OlO.5877.4440 30분 이내 신속 방문",
-  keywords:
-    "출장 마사지, 부산 출장마사지, 서면, 해운대, 동래, 남포동, 연산동, 광안리, 수영구, 김해, 양산, 부산역, 대연동, 기장, 사상, 하단, 덕천, 화명동, 정관, 센텀시티, 구서동, 범일동, 영도, 송도, 명지동, 민락동, 일광, 문현동 출장 마사지 서비스를 제공합니다. OlO.5877.4440 30분 이내 신속 방문",
-  authors: [{ name: "부산 프리미엄 출장 마사지" }],
-  creator: "부산 프리미엄 출장 마사지",
-  publisher: "부산 프리미엄 출장 마사지",
+    "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스입니다. 전문 테라피스트가 아로마, 스웨디시 등 맞춤형 힐링 케어를 제공합니다.",
+  authors: [{ name: BUSINESS_NAME }],
+  creator: BUSINESS_NAME,
+  publisher: BUSINESS_NAME,
   robots: {
     index: true,
     follow: true,
@@ -37,21 +43,20 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: "/",
   },
   openGraph: {
-    title:
-      "부산 출장 마사지 - 서면, 해운대, 동래, 남포동, 연산동, 광안리, 수영구, 김해, 양산, 기장 전지역 30분 이내 방문",
+    title: `${BUSINESS_NAME} - 부산 전 지역 30분 이내 방문 출장 마사지`,
     description:
-      "OlO.5877.4440, 부산, 서면, 해운대, 동래, 남포동, 연산동, 광안리, 수영구, 김해, 양산, 부산역, 대연동, 기장, 사상, 하단, 덕천, 화명동, 정관, 센텀시티, 구서동, 범일동, 영도, 송도, 명지동, 민락동, 일광, 문현동 출장 마사지 서비스를 제공합니다. OlO.5877.4440 30분 이내 신속 방문",
-    url: siteUrl,
-    siteName: "부산 출장 마사지 서비스",
+      "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스입니다. 전문 테라피스트의 맞춤형 힐링 케어를 경험해보세요.",
+    url: SITE_URL,
+    siteName: BUSINESS_NAME,
     images: [
       {
         url: "/faviconImages/apple-icon-180x180.png",
         width: 180,
         height: 180,
-        alt: "부산 출장 마사지 서비스",
+        alt: BUSINESS_NAME,
       },
     ],
     type: "website",
@@ -59,8 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "부산 출장 마사지 - 서면, 해운대, 남포동, 연산동, 김해, 양산, 기장 전지역",
+    title: `${BUSINESS_NAME} - 부산 전 지역 출장 마사지`,
     description:
       "30분 이내 신속 방문, 전문 테라피스트의 고품격 힐링 케어를 경험하세요.",
     images: ["/faviconImages/apple-icon-180x180.png"],
@@ -68,7 +72,7 @@ export const metadata: Metadata = {
   verification: {
     google: "-LmsuREJ0S5zNs3U4rJqf8E4khPrG2VnMn-FVueLphk",
     other: {
-      "naver-site-verification": "3e8436abb5b1078ed98d99e26718a68258a91da1",
+      "naver-site-verification": "0d022f1d592ba616fae0f90d75035df962584c5d",
     },
   },
 };
@@ -82,17 +86,17 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": siteUrl,
-    name: "부산 프리미엄 출장 마사지",
-    description:
-      "부산, 서면, 해운대, 남포동, 연산동, 김해, 양산, 기장 전지역 출장 마사지 서비스",
-    url: siteUrl,
-    telephone: "+82-10-5877-4440",
+    "@id": SITE_URL,
+    name: BUSINESS_NAME,
+    description: "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스",
+    url: SITE_URL,
+    telephone: PHONE_INTL,
     priceRange: "₩₩",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "부산",
-      addressRegion: "부산광역시",
+      streetAddress: BUSINESS_ADDRESS.dong,
+      addressLocality: BUSINESS_ADDRESS.city,
+      addressRegion: BUSINESS_ADDRESS.region,
       addressCountry: "KR",
     },
     geo: {
@@ -138,24 +142,16 @@ export default function RootLayout({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "부산 출장 마사지",
-            description: "부산 전지역 30분 이내 방문 마사지 서비스",
+            name: "아로마 마사지",
+            description: "천연 에센셜 오일로 근육의 긴장을 풀어주는 힐링 케어",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "서면 출장 마사지",
-            description: "서면 지역 전문 출장 마사지",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "해운대 출장 마사지",
-            description: "해운대, 센텀시티, 마린시티 출장 마사지",
+            name: "스웨디시 마사지",
+            description: "혈액순환과 림프 흐름을 돕는 리드미컬한 이완 케어",
           },
         },
       ],
@@ -251,6 +247,7 @@ export default function RootLayout({
       >
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );

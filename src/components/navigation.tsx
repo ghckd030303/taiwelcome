@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,12 +11,14 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { PHONE_NUMBER, PHONE_TEL_HREF } from "@/lib/site-config";
+
+const navLinks = [
+  { href: "/", label: "홈" },
+  { href: "/course", label: "코스 및 가격" },
+  { href: "/regions", label: "서비스 지역" },
+  { href: "/guide", label: "이용안내" },
+];
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,7 +33,7 @@ export function Navigation() {
               href="/"
               className="text-xl font-bold text-[var(--massage-coral-300)]"
             >
-              프리미엄 출장 마사지
+              휴케어 부산
             </Link>
           </div>
 
@@ -39,66 +41,25 @@ export function Navigation() {
           <div className="hidden md:flex md:items-center md:gap-2">
             <NavigationMenu>
               <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="/"
-                    className={navigationMenuTriggerStyle()}
-                  >
-                    홈
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+                {navLinks.map((link) => (
+                  <NavigationMenuItem key={link.href}>
+                    <NavigationMenuLink
+                      href={link.href}
+                      className={navigationMenuTriggerStyle()}
+                    >
+                      {link.label}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
               </NavigationMenuList>
             </NavigationMenu>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-accent/50">
-                지역안내
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-[250px]">
-                <DropdownMenuItem asChild>
-                  <Link
-                    href="/region-guide/gyeongnam"
-                    className="cursor-pointer"
-                  >
-                    <div className="flex flex-col">
-                      <div className="font-medium">경남</div>
-                      <div className="text-xs text-muted-foreground">
-                        김해, 양산, 창원 등
-                      </div>
-                    </div>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/region-guide/busan" className="cursor-pointer">
-                    <div className="flex flex-col">
-                      <div className="font-medium">부산</div>
-                      <div className="text-xs text-muted-foreground">
-                        해운대, 서면, 남포동 등
-                      </div>
-                    </div>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/region-guide" className="cursor-pointer">
-                    <div className="font-medium">전체 지역 보기</div>
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="/#contact"
-                    className={navigationMenuTriggerStyle()}
-                  >
-                    연락처
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            <a href={PHONE_TEL_HREF} aria-label={`전화 문의 ${PHONE_NUMBER}`}>
+              <Button className="ml-2 gap-2 bg-[var(--massage-coral-200)] text-white hover:bg-[var(--massage-coral-300)]">
+                <Phone className="h-4 w-4" />
+                {PHONE_NUMBER}
+              </Button>
+            </a>
           </div>
 
           {/* 모바일 메뉴 버튼 */}
@@ -122,44 +83,25 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="border-t py-4 md:hidden">
             <div className="space-y-1">
-              <Link
-                href="/"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-[var(--massage-coral-100)] hover:text-[var(--massage-brown-900)]"
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-[var(--massage-coral-100)] hover:text-[var(--massage-brown-900)]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <a
+                href={PHONE_TEL_HREF}
+                aria-label={`전화 문의 ${PHONE_NUMBER}`}
+                className="mt-2 flex items-center justify-center gap-2 rounded-md bg-[var(--massage-coral-200)] px-3 py-2 text-base font-semibold text-white hover:bg-[var(--massage-coral-300)]"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                홈
-              </Link>
-              <div className="px-3 py-2 text-base font-medium text-gray-900">
-                지역안내
-              </div>
-              <Link
-                href="/region-guide/gyeongnam"
-                className="block rounded-md py-2 pr-3 pl-6 text-sm font-medium text-gray-700 hover:bg-[var(--massage-coral-100)] hover:text-[var(--massage-brown-900)]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                경남
-              </Link>
-              <Link
-                href="/region-guide/busan"
-                className="block rounded-md py-2 pr-3 pl-6 text-sm font-medium text-gray-700 hover:bg-[var(--massage-coral-100)] hover:text-[var(--massage-brown-900)]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                부산
-              </Link>
-              <Link
-                href="/region-guide"
-                className="block rounded-md py-2 pr-3 pl-6 text-sm font-medium text-gray-700 hover:bg-[var(--massage-coral-100)] hover:text-[var(--massage-brown-900)]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                전체 지역 보기
-              </Link>
-              <Link
-                href="/#contact"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-[var(--massage-coral-100)] hover:text-[var(--massage-brown-900)]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                연락처
-              </Link>
+                <Phone className="h-4 w-4" />
+                {PHONE_NUMBER}
+              </a>
             </div>
           </div>
         )}

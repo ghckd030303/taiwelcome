@@ -12,6 +12,7 @@ import {
   getAllProvinces,
   getCitiesByProvince,
 } from "@/lib/region-data";
+import { PHONE_NUMBER, PHONE_TEL_HREF, SITE_URL } from "@/lib/site-config";
 
 interface CityPageProps {
   params: Promise<{
@@ -36,26 +37,24 @@ export async function generateMetadata({
   const displayProvince = getDisplayName(province);
   const dongs = getDongsByCity(province, city);
   const dongNames = dongs.slice(0, 5).join(", ");
-  const siteUrl = "https://taiwelcome.vercel.app";
-  const canonicalUrl = `${siteUrl}/region-guide/${regionSlug}/${citySlug}`;
+  const canonicalUrl = `${SITE_URL}/region-guide/${regionSlug}/${citySlug}`;
 
   return {
     title: `${city} 출장 마사지 - ${displayProvince} | 30분 이내 방문`,
-    description: `${city} ${dongNames} 등 전지역 출장 마사지 서비스. 30분 이내 신속 방문, 20대 전문 관리사의 아로마, 스웨디시, 섹슈얼 케어 마사지.`,
+    description: `${city} ${dongNames} 등 전지역 출장 마사지 서비스. 30분 이내 신속 방문, 전문 테라피스트의 아로마, 스웨디시 맞춤 케어.`,
     keywords: [
       `${city} 출장마사지`,
       `${city} 마사지`,
       ...dongs.slice(0, 10).map((dong) => `${city} ${dong} 마사지`),
       "아로마 마사지",
       "스웨디시 마사지",
-      "섹슈얼 마사지",
     ],
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
       title: `${city} 출장 마사지 - 전지역 서비스`,
-      description: `${city} 전지역 30분 이내 방문. 전문 관리사 프리미엄 케어`,
+      description: `${city} 전지역 30분 이내 방문. 전문 테라피스트의 맞춤 케어`,
       type: "website",
       url: canonicalUrl,
     },
@@ -164,14 +163,14 @@ export default async function CityPage({ params }: CityPageProps) {
             {city} 전지역 프리미엄 서비스
           </h2>
           <p className="mb-8 text-lg text-[var(--massage-brown-700)]">
-            30분 이내 방문 · 20대 전문 관리사 · 아로마/스웨디시 마사지
+            30분 이내 방문 · 전문 테라피스트 · 아로마/스웨디시 마사지
           </p>
-          <a href="tel:010-5877-4440">
+          <a href={PHONE_TEL_HREF}>
             <Button
               size="lg"
               className="h-auto bg-gradient-to-r from-[#eb5459] to-orange-200 px-12 py-6 text-2xl font-bold text-white shadow-xl transition-all hover:shadow-2xl sm:px-16 sm:py-8 sm:text-3xl"
             >
-              010-5877-4440
+              {PHONE_NUMBER}
             </Button>
           </a>
           <p className="mt-4 text-sm text-[var(--massage-brown-700)]">

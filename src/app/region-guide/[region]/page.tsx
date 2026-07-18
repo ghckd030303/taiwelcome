@@ -11,6 +11,7 @@ import {
   getDisplayName,
 } from "@/lib/region-data";
 import { cn } from "@/lib/utils";
+import { SITE_URL } from "@/lib/site-config";
 
 interface RegionPageProps {
   params: Promise<{
@@ -33,12 +34,11 @@ export async function generateMetadata({
   const displayName = getDisplayName(province);
   const cities = getCitiesByProvince(province);
   const cityNames = cities.slice(0, 5).join(", ");
-  const siteUrl = "https://taiwelcome.vercel.app";
-  const canonicalUrl = `${siteUrl}/region-guide/${regionSlug}`;
+  const canonicalUrl = `${SITE_URL}/region-guide/${regionSlug}`;
 
   return {
     title: `${displayName} 출장 마사지 - 전지역 30분 이내 방문 | ${cityNames}`,
-    description: `${displayName} 전지역 출장 마사지 서비스. ${cityNames} 등 모든 지역에서 30분 이내 신속 방문. 20대 전문 관리사의 아로마, 스웨디시 마사지.`,
+    description: `${displayName} 전지역 출장 마사지 서비스. ${cityNames} 등 모든 지역에서 30분 이내 신속 방문. 전문 테라피스트의 아로마, 스웨디시 마사지.`,
     keywords: [
       `${displayName} 출장마사지`,
       ...cities.map((city) => `${city} 마사지`),
@@ -160,10 +160,10 @@ export default async function RegionPage({ params }: RegionPageProps) {
             </div>
             <div className="rounded-xl bg-white/90 p-6 text-center backdrop-blur-sm">
               <p className="mb-2 text-xl font-bold text-[var(--massage-coral-300)]">
-                20대
+                전문 교육
               </p>
               <p className="text-sm font-semibold text-[var(--massage-brown-900)]">
-                전문 관리사
+                전문 테라피스트
               </p>
             </div>
             <div className="rounded-xl bg-white/90 p-6 text-center backdrop-blur-sm">
