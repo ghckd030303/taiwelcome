@@ -11,14 +11,13 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { BUSINESS_NAME, PHONE_NUMBER, PHONE_TEL_HREF } from "@/lib/site-config";
+import { PHONE_NUMBER, PHONE_TEL_HREF } from "@/lib/site-config";
 
 const navLinks = [
   { href: "/", label: "홈" },
-  { href: "/booking", label: "예약 상담" },
-  { href: "/course", label: "케어 코스" },
-  { href: "/regions", label: "방문 지역" },
-  { href: "/guide", label: "FAQ" },
+  { href: "/course", label: "코스 및 가격" },
+  { href: "/regions", label: "서비스 지역" },
+  { href: "/guide", label: "이용안내" },
 ];
 
 export function Navigation() {
@@ -34,7 +33,7 @@ export function Navigation() {
               href="/"
               className="text-xl font-bold text-[var(--massage-coral-300)]"
             >
-              {BUSINESS_NAME}
+              휴케어 부산
             </Link>
           </div>
 

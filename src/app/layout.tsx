@@ -23,11 +23,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${BUSINESS_NAME} - 부산 맞춤형 방문 힐링 케어`,
+    default: `${BUSINESS_NAME} - 부산 전 지역 30분 이내 방문 출장 마사지`,
     template: `%s | ${BUSINESS_NAME}`,
   },
   description:
-    "부산, 김해, 기장, 양산 지역에서 예약 상담 후 방문하는 맞춤형 힐링 케어 서비스입니다. 아로마, 프로젝트 마사지, 스웨디시 등 컨디션에 맞는 코스를 안내합니다.",
+    "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스입니다. 전문 테라피스트가 아로마, 스웨디시 등 맞춤형 힐링 케어를 제공합니다.",
   authors: [{ name: BUSINESS_NAME }],
   creator: BUSINESS_NAME,
   publisher: BUSINESS_NAME,
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: `${BUSINESS_NAME} - 부산 맞춤형 방문 힐링 케어`,
+    title: `${BUSINESS_NAME} - 부산 전 지역 30분 이내 방문 출장 마사지`,
     description:
-      "부산, 김해, 기장, 양산 지역에서 예약 상담 후 방문하는 맞춤형 힐링 케어를 안내합니다.",
+      "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스입니다. 전문 테라피스트의 맞춤형 힐링 케어를 경험해보세요.",
     url: SITE_URL,
     siteName: BUSINESS_NAME,
     images: [
@@ -64,10 +64,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BUSINESS_NAME} - 부산 방문 힐링 케어`,
+    title: `${BUSINESS_NAME} - 부산 전 지역 출장 마사지`,
     description:
-      "전화 상담으로 코스, 지역, 시간을 확인하고 편안한 방문 케어를 예약하세요.",
+      "30분 이내 신속 방문, 전문 테라피스트의 고품격 힐링 케어를 경험하세요.",
     images: ["/faviconImages/apple-icon-180x180.png"],
+  },
+  verification: {
+    google: "-LmsuREJ0S5zNs3U4rJqf8E4khPrG2VnMn-FVueLphk",
+    other: {
+      "naver-site-verification": "0d022f1d592ba616fae0f90d75035df962584c5d",
+    },
   },
 };
 
@@ -82,7 +88,7 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     "@id": SITE_URL,
     name: BUSINESS_NAME,
-    description: "부산, 김해, 기장, 양산 지역 맞춤형 방문 힐링 케어 서비스",
+    description: "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스",
     url: SITE_URL,
     telephone: PHONE_INTL,
     priceRange: "₩₩",
@@ -159,77 +165,75 @@ export default function RootLayout({
         <link
           rel="apple-touch-icon"
           sizes="57x57"
-          href="/faviconImages/apple-icon-57x57.png"
+          href="/apple-icon-57x57.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="60x60"
-          href="/faviconImages/apple-icon-60x60.png"
+          href="/apple-icon-60x60.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="72x72"
-          href="/faviconImages/apple-icon-72x72.png"
+          href="/apple-icon-72x72.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="76x76"
-          href="/faviconImages/apple-icon-76x76.png"
+          href="/apple-icon-76x76.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="114x114"
-          href="/faviconImages/apple-icon-114x114.png"
+          href="/apple-icon-114x114.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="120x120"
-          href="/faviconImages/apple-icon-120x120.png"
+          href="/apple-icon-120x120.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="144x144"
-          href="/faviconImages/apple-icon-144x144.png"
+          href="/apple-icon-144x144.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="152x152"
-          href="/faviconImages/apple-icon-152x152.png"
+          href="/apple-icon-152x152.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/faviconImages/apple-icon-180x180.png"
+          href="/apple-icon-180x180.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="192x192"
-          href="/faviconImages/android-icon-192x192.png"
+          href="/android-icon-192x192.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/faviconImages/favicon-32x32.png"
+          href="/favicon-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="96x96"
-          href="/faviconImages/favicon-96x96.png"
+          href="/favicon-96x96.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/faviconImages/favicon-16x16.png"
+          href="/favicon-16x16.png"
         />
+        <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta
-          name="msapplication-TileImage"
-          content="/faviconImages/ms-icon-144x144.png"
-        />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
 
         {/* 구조화된 데이터 (JSON-LD) - 검색엔진이 비즈니스 정보를 이해 */}
