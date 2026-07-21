@@ -6,13 +6,13 @@ import { PHONE_NUMBER, PHONE_TEL_HREF, SITE_URL } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "코스 및 가격 안내",
   description:
-    "아로마, 스웨디시 등 출장 마사지 코스와 이용 시간별 안내입니다. 정확한 가격은 전화 상담 시 투명하게 안내해드립니다.",
+    "아로마, 스웨디시 등 출장마사지 코스와 이용 시간별 안내입니다. 정확한 가격은 전화 상담 시 투명하게 안내해드립니다.",
   alternates: {
     canonical: `${SITE_URL}/course`,
   },
   openGraph: {
     title: "코스 및 가격 안내",
-    description: "아로마, 스웨디시 등 출장 마사지 코스와 이용 시간별 안내",
+    description: "아로마, 스웨디시 등 출장마사지 코스와 이용 시간별 안내",
     url: `${SITE_URL}/course`,
     type: "website",
   },

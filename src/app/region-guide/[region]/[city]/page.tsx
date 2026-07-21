@@ -40,8 +40,8 @@ export async function generateMetadata({
   const canonicalUrl = `${SITE_URL}/region-guide/${regionSlug}/${citySlug}`;
 
   return {
-    title: `${city} 출장 마사지 - ${displayProvince} | 30분 이내 방문`,
-    description: `${city} ${dongNames} 등 전지역 출장 마사지 서비스. 30분 이내 신속 방문, 전문 테라피스트의 아로마, 스웨디시 맞춤 케어.`,
+    title: `${city} 출장마사지 - ${displayProvince} | 30분 이내 방문`,
+    description: `${city} ${dongNames} 등 전지역 출장마사지 서비스. 30분 이내 신속 방문, 전문 테라피스트의 아로마, 스웨디시 맞춤 케어.`,
     keywords: [
       `${city} 출장마사지`,
       `${city} 마사지`,
@@ -53,7 +53,7 @@ export async function generateMetadata({
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${city} 출장 마사지 - 전지역 서비스`,
+      title: `${city} 출장마사지 - 전지역 서비스`,
       description: `${city} 전지역 30분 이내 방문. 전문 테라피스트의 맞춤 케어`,
       type: "website",
       url: canonicalUrl,
@@ -111,7 +111,7 @@ export default async function CityPage({ params }: CityPageProps) {
             </div>
           </div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-[var(--massage-brown-900)] sm:text-5xl">
-            {city} 출장 마사지
+            {city} 출장마사지
           </h1>
           <p className="mb-8 text-lg text-[var(--massage-brown-700)] sm:text-xl">
             서비스를 받으실 동/읍/면을 선택해주세요

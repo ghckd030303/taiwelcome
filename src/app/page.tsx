@@ -16,7 +16,8 @@ export default function Home() {
     <div className="min-h-screen">
       {/* SEO H1 - 검색엔진용 (시각적으로 숨김) */}
       <h1 className="sr-only">
-        부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스
+        부산출장안마 · 부산홈타이 - 부산 전 지역 30분 이내 방문하는 프리미엄
+        출장마사지 서비스
       </h1>
 
       {/* Hero Section with Background Image */}
@@ -25,7 +26,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <Image
             src="/images/image.png"
-            alt="부산 출장 마사지"
+            alt="부산 출장마사지"
             fill
             priority
             className="object-cover"
@@ -134,12 +135,12 @@ export default function Home() {
             id="about-heading"
             className="font-NanumGothic mb-8 text-center text-3xl tracking-wide sm:text-4xl"
           >
-            휴케어 부산 출장 마사지 소개
+            휴케어 부산 출장마사지 소개
           </h2>
           <article className="space-y-4 text-base leading-relaxed text-[var(--massage-brown-700)] sm:text-lg">
             <p>
               휴케어 부산은 바쁜 일상 속에서 편안하게 힐링을 경험하실 수 있는
-              프리미엄 출장 마사지 서비스입니다. 부산 전 지역 30분 이내 방문을
+              프리미엄 출장마사지 서비스입니다. 부산 전 지역 30분 이내 방문을
               목표로 신속하게 이동하며, 전문 교육을 받은 테라피스트가 고객님이
               계신 자택, 호텔, 오피스텔 어디든 찾아가 편안하게 케어해드립니다.
             </p>

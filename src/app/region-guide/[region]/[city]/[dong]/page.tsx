@@ -41,8 +41,8 @@ export async function generateMetadata({
   const canonicalUrl = `${SITE_URL}/region-guide/${regionSlug}/${citySlug}/${dongSlug}`;
 
   return {
-    title: `${fullLocation} 출장 마사지 - 30분 이내 방문`,
-    description: `${fullLocation} 출장 마사지 서비스. 30분 이내 신속 방문, 전문 테라피스트의 아로마, 스웨디시 맞춤 케어를 경험해보세요.`,
+    title: `${fullLocation} 출장마사지 - 30분 이내 방문`,
+    description: `${fullLocation} 출장마사지 서비스. 30분 이내 신속 방문, 전문 테라피스트의 아로마, 스웨디시 맞춤 케어를 경험해보세요.`,
     keywords: [
       `${fullLocation} 출장마사지`,
       `${city} ${dong} 마사지`,
@@ -54,7 +54,7 @@ export async function generateMetadata({
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${fullLocation} 출장 마사지 - 30분 이내 방문`,
+      title: `${fullLocation} 출장마사지 - 30분 이내 방문`,
       description: `${fullLocation} 전문 테라피스트가 직접 방문하는 아로마, 스웨디시 맞춤 케어`,
       url: canonicalUrl,
       type: "website",

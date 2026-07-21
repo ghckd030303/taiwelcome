@@ -2,7 +2,8 @@
  * 사이트 전역 설정값
  * 도메인, 상호명, 연락처, 소재지 등 여러 페이지에서 공통으로 참조하는 값을 한 곳에서 관리합니다.
  */
-export const SITE_URL = "https://hue-care.site";
+// 실제 서비스 도메인은 www로 리다이렉트되므로 canonical/sitemap도 www 기준으로 통일
+export const SITE_URL = "https://www.hue-care.site";
 
 export const BUSINESS_NAME = "휴케어 부산";
 

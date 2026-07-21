@@ -8,13 +8,13 @@ import { SITE_URL } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "지역별 상세 안내",
   description:
-    "부산, 경남 전 지역 출장 마사지 서비스를 시/구/동 단위로 확인하실 수 있는 지역별 상세 안내입니다.",
+    "부산, 경남 전 지역 출장마사지 서비스를 시/구/동 단위로 확인하실 수 있는 지역별 상세 안내입니다.",
   alternates: {
     canonical: `${SITE_URL}/region-guide`,
   },
   openGraph: {
     title: "지역별 상세 안내",
-    description: "부산, 경남 전 지역 출장 마사지 서비스 지역별 상세 안내",
+    description: "부산, 경남 전 지역 출장마사지 서비스 지역별 상세 안내",
     url: `${SITE_URL}/region-guide`,
     type: "website",
   },
@@ -51,7 +51,7 @@ export default function RegionGuidePage() {
             </div>
           </div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-[var(--massage-brown-900)] sm:text-5xl">
-            지역별 출장 마사지 안내
+            지역별 출장마사지 안내
           </h1>
           <p className="mb-8 text-lg text-[var(--massage-brown-700)] sm:text-xl">
             고객님이 계신 지역을 선택해주세요

@@ -12,13 +12,13 @@ import { PHONE_NUMBER, PHONE_TEL_HREF, SITE_URL } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "이용 안내 및 FAQ",
   description:
-    "출장 마사지 예약 방법, 결제, 방문 지역, 위생 관리 등 자주 묻는 질문을 안내합니다. 전화 한 통으로 간편하게 예약하세요.",
+    "출장마사지 예약 방법, 결제, 방문 지역, 위생 관리 등 자주 묻는 질문을 안내합니다. 전화 한 통으로 간편하게 예약하세요.",
   alternates: {
     canonical: `${SITE_URL}/guide`,
   },
   openGraph: {
     title: "이용 안내 및 FAQ",
-    description: "출장 마사지 예약 방법과 자주 묻는 질문 안내",
+    description: "출장마사지 예약 방법과 자주 묻는 질문 안내",
     url: `${SITE_URL}/guide`,
     type: "website",
   },

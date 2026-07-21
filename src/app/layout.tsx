@@ -23,11 +23,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${BUSINESS_NAME} - 부산 전 지역 30분 이내 방문 출장 마사지`,
+    default: `부산출장안마 · 부산홈타이 24시 | ${BUSINESS_NAME}`,
     template: `%s | ${BUSINESS_NAME}`,
   },
   description:
-    "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스입니다. 전문 테라피스트가 아로마, 스웨디시 등 맞춤형 힐링 케어를 제공합니다.",
+    "부산출장안마 전문 휴케어 부산. 연산동, 사상, 부산역, 덕천, 하단 등 부산 전 지역 30분 이내 방문. 전문 테라피스트의 아로마, 스웨디시 홈타이 케어를 전화로 예약하세요.",
+  keywords: [
+    "부산출장안마",
+    "부산홈타이",
+    "부산출장마사지",
+    "연산동 출장안마",
+    "사상 출장안마",
+    "부산역 출장안마",
+    "덕천 출장안마",
+    "하단 출장안마",
+  ],
   authors: [{ name: BUSINESS_NAME }],
   creator: BUSINESS_NAME,
   publisher: BUSINESS_NAME,
@@ -46,9 +56,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: `${BUSINESS_NAME} - 부산 전 지역 30분 이내 방문 출장 마사지`,
+    title: `부산출장안마 · 부산홈타이 24시 | ${BUSINESS_NAME}`,
     description:
-      "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스입니다. 전문 테라피스트의 맞춤형 힐링 케어를 경험해보세요.",
+      "연산동, 사상, 부산역, 덕천, 하단 등 부산 전 지역 30분 이내 방문하는 출장안마 서비스. 전문 테라피스트의 맞춤형 홈타이 케어를 경험해보세요.",
     url: SITE_URL,
     siteName: BUSINESS_NAME,
     images: [
@@ -64,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${BUSINESS_NAME} - 부산 전 지역 출장 마사지`,
+    title: `부산출장안마 24시 | ${BUSINESS_NAME}`,
     description:
-      "30분 이내 신속 방문, 전문 테라피스트의 고품격 힐링 케어를 경험하세요.",
+      "30분 이내 신속 방문, 전문 테라피스트의 부산 출장안마·홈타이 케어를 경험하세요.",
     images: ["/faviconImages/apple-icon-180x180.png"],
   },
   verification: {
@@ -88,7 +98,8 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     "@id": SITE_URL,
     name: BUSINESS_NAME,
-    description: "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장 마사지 서비스",
+    description:
+      "부산 전 지역 30분 이내 방문 가능한 프리미엄 출장마사지 서비스",
     url: SITE_URL,
     telephone: PHONE_INTL,
     priceRange: "₩₩",
@@ -136,7 +147,7 @@ export default function RootLayout({
     currenciesAccepted: "KRW",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "출장 마사지 서비스",
+      name: "출장마사지 서비스",
       itemListElement: [
         {
           "@type": "Offer",
@@ -232,6 +243,11 @@ export default function RootLayout({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/manifest.json" />
+        {/* 지역 SEO geo 태그 (부산, KR) */}
+        <meta name="geo.region" content="KR-26" />
+        <meta name="geo.placename" content="부산광역시" />
+        <meta name="geo.position" content="35.1796;129.0756" />
+        <meta name="ICBM" content="35.1796, 129.0756" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />

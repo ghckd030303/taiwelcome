@@ -14,13 +14,13 @@ import { PHONE_NUMBER, PHONE_TEL_HREF, SITE_URL } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "서비스 지역 안내",
   description:
-    "부산 전 지역 30분 이내 방문 가능한 출장 마사지 서비스 지역입니다. 원하시는 지역을 선택하시면 상세 안내로 이동합니다.",
+    "부산 전 지역 30분 이내 방문 가능한 출장마사지 서비스 지역입니다. 원하시는 지역을 선택하시면 상세 안내로 이동합니다.",
   alternates: {
     canonical: `${SITE_URL}/regions`,
   },
   openGraph: {
     title: "서비스 지역 안내",
-    description: "부산 전 지역 30분 이내 방문 가능한 출장 마사지 서비스 지역",
+    description: "부산 전 지역 30분 이내 방문 가능한 출장마사지 서비스 지역",
     url: `${SITE_URL}/regions`,
     type: "website",
   },

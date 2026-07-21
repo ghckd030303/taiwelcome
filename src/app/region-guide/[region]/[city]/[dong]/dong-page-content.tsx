@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   MapPin,
@@ -24,6 +25,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { getAreaByDistrict } from "@/lib/area-content";
 import { getAreaType } from "@/lib/area-type";
 import { seoTemplates, renderTemplate } from "@/lib/seo-templates";
 import { PHONE_NUMBER, PHONE_TEL_HREF } from "@/lib/site-config";
@@ -54,6 +56,7 @@ export function DongPageContent({
   const areaType = getAreaType(city, dong);
   const tmpl = seoTemplates[areaType];
   const r = (text: string) => renderTemplate(text, dong, city, fullLocation);
+  const relatedArea = getAreaByDistrict(city);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[var(--massage-beige-200)] via-white to-[var(--massage-coral-100)]">
@@ -68,7 +71,7 @@ export function DongPageContent({
 
       {/* SEO H1 */}
       <h1 className="sr-only">
-        {fullLocation} 출장 마사지 - 30분 이내 방문, 전문 테라피스트의 아로마, 스웨디시, 딥티슈 마사지
+        {fullLocation} 출장마사지 - 30분 이내 방문, 전문 테라피스트의 아로마, 스웨디시, 딥티슈 마사지
       </h1>
 
       {/* 히어로 섹션 */}
@@ -82,7 +85,7 @@ export function DongPageContent({
           <h2 className="mb-4 text-center text-4xl font-bold tracking-tight text-[var(--massage-brown-900)] sm:text-5xl">
             {fullLocation}
             <br />
-            <span className="text-[var(--massage-coral-300)]">출장 마사지</span>
+            <span className="text-[var(--massage-coral-300)]">출장마사지</span>
           </h2>
           <p className="mb-8 text-center text-base leading-relaxed text-[var(--massage-brown-700)] sm:text-lg">
             {dongDescription}
@@ -240,13 +243,13 @@ export function DongPageContent({
       <section className="px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-3xl font-bold text-[var(--massage-brown-900)] sm:text-4xl">
-            {dong} 출장 마사지 서비스
+            {dong} 출장마사지 서비스
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-xl sm:h-[400px]">
               <Image
                 src="/images/image.png"
-                alt={`${fullLocation} 출장 마사지 프리미엄 케어`}
+                alt={`${fullLocation} 출장마사지 프리미엄 케어`}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -255,7 +258,7 @@ export function DongPageContent({
             <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-xl sm:h-[400px]">
               <Image
                 src="/images/image2.png"
-                alt={`${fullLocation} 출장 마사지 전문 테라피스트`}
+                alt={`${fullLocation} 출장마사지 전문 테라피스트`}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -269,7 +272,7 @@ export function DongPageContent({
       <section className="px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-3xl font-bold text-[var(--massage-brown-900)] sm:text-4xl">
-            {dong} 출장 마사지를 선택해야 하는 이유
+            {dong} 출장마사지를 선택해야 하는 이유
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="text-center">
@@ -297,7 +300,7 @@ export function DongPageContent({
                 경험 풍부한 전문가
               </h3>
               <p className="text-[var(--massage-brown-700)]">
-                {dong} 출장 마사지는 오랜 경력의 전문 테라피스트들이 제공합니다.
+                {dong} 출장마사지는 오랜 경력의 전문 테라피스트들이 제공합니다.
                 고객님의 몸 상태를 정확히 파악하여 최적의 마사지 기법을
                 적용합니다.
               </p>
@@ -325,7 +328,7 @@ export function DongPageContent({
       <section className="bg-gradient-to-b from-[var(--massage-beige-200)] to-white px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-10 text-center text-3xl font-bold text-[var(--massage-brown-900)] sm:text-4xl">
-            {dong} 출장 마사지 자주 묻는 질문
+            {dong} 출장마사지 자주 묻는 질문
           </h2>
           <Accordion type="single" collapsible className="w-full space-y-4">
             <AccordionItem
@@ -333,7 +336,7 @@ export function DongPageContent({
               className="rounded-lg border bg-white px-6 shadow-sm"
             >
               <AccordionTrigger className="text-left text-lg font-semibold text-[var(--massage-brown-900)] hover:text-[var(--massage-coral-300)]">
-                {fullLocation} 출장 마사지는 어떻게 예약하나요?
+                {fullLocation} 출장마사지는 어떻게 예약하나요?
               </AccordionTrigger>
               <AccordionContent className="text-[var(--massage-brown-700)]">
                 {phoneNumber}로 전화주시면 즉시 예약 가능합니다. {dong} 지역은
@@ -348,10 +351,10 @@ export function DongPageContent({
               className="rounded-lg border bg-white px-6 shadow-sm"
             >
               <AccordionTrigger className="text-left text-lg font-semibold text-[var(--massage-brown-900)] hover:text-[var(--massage-coral-300)]">
-                출장 마사지 비용은 얼마인가요?
+                출장마사지 비용은 얼마인가요?
               </AccordionTrigger>
               <AccordionContent className="text-[var(--massage-brown-700)]">
-                {fullLocation} 출장 마사지 비용은 선택하시는 코스와 시간에 따라
+                {fullLocation} 출장마사지 비용은 선택하시는 코스와 시간에 따라
                 다릅니다. 기본 60분 코스부터 다양한 옵션이 있으며, 전화 상담 시
                 자세한 가격을 안내해드립니다. 현금, 카드, 계좌이체 모두
                 가능하며, 추가 비용 없이 투명하게 안내드립니다.
@@ -381,7 +384,7 @@ export function DongPageContent({
                 관리사는 어떤 분들인가요?
               </AccordionTrigger>
               <AccordionContent className="text-[var(--massage-brown-700)]">
-                {dong} 출장 마사지는 전문 테라피스트들이 서비스를 제공합니다.
+                {dong} 출장마사지는 전문 테라피스트들이 서비스를 제공합니다.
                 모든 테라피스트는 전문 교육을 이수하였으며, 아로마, 스웨디시 등
                 다양한 마사지 기법에 능숙합니다. 친절하고 프로페셔널한 서비스로
                 고객님의 만족을 최우선으로 합니다.
@@ -464,7 +467,7 @@ export function DongPageContent({
       <section className="bg-gradient-to-r from-[var(--massage-coral-100)] to-[var(--massage-beige-200)] px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-10 text-center text-3xl font-bold text-[var(--massage-brown-900)] sm:text-4xl">
-            {dong} 출장 마사지 이용 안내
+            {dong} 출장마사지 이용 안내
           </h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div className="rounded-2xl bg-white/90 p-8 backdrop-blur-sm">
@@ -612,6 +615,27 @@ export function DongPageContent({
           </details>
         </div>
       </section>
+
+      {/* 상권 특화 페이지 내부 링크 */}
+      {relatedArea && (
+        <section className="px-4 py-10 sm:px-6">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-[var(--massage-coral-200)] bg-white p-8 text-center shadow-sm">
+            <h3 className="mb-2 text-xl font-bold text-[var(--massage-brown-900)]">
+              {relatedArea.name} 출장안마 상세 안내
+            </h3>
+            <p className="mb-5 text-sm leading-relaxed text-[var(--massage-brown-700)] sm:text-base">
+              {dong}이 속한 {city} 일대의 방문 범위, 이용 팁, 자주 묻는 질문을
+              한 페이지에 정리했습니다.
+            </p>
+            <Link
+              href={`/areas/${relatedArea.slug}`}
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--massage-coral-300)] px-7 py-3 font-bold text-white transition hover:bg-[var(--massage-coral-200)]"
+            >
+              {relatedArea.name} 출장안마 안내 보기
+            </Link>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

@@ -16,7 +16,9 @@ import { PHONE_NUMBER, PHONE_TEL_HREF } from "@/lib/site-config";
 const navLinks = [
   { href: "/", label: "홈" },
   { href: "/course", label: "코스 및 가격" },
+  { href: "/areas", label: "핵심 지역" },
   { href: "/regions", label: "서비스 지역" },
+  { href: "/blog", label: "칼럼" },
   { href: "/guide", label: "이용안내" },
 ];
 

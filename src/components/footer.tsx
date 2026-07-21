@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Phone } from "lucide-react";
+import { areaContents } from "@/lib/area-content";
 import { BUSINESS_ADDRESS, BUSINESS_NAME, PHONE_NUMBER, PHONE_TEL_HREF } from "@/lib/site-config";
 
 export function Footer() {
@@ -8,6 +10,32 @@ export function Footer() {
       itemType="https://schema.org/LocalBusiness"
       className="border-t border-[var(--massage-beige-300)] bg-[var(--massage-brown-900)] px-4 py-10 text-[var(--massage-beige-100)] sm:px-6"
     >
+      <nav
+        aria-label="지역별 출장안마 안내"
+        className="mx-auto mb-8 flex max-w-6xl flex-wrap gap-x-5 gap-y-2 border-b border-white/10 pb-6 text-sm"
+      >
+        {areaContents.map((area) => (
+          <Link
+            key={area.slug}
+            href={`/areas/${area.slug}`}
+            className="text-[var(--massage-beige-300)] transition-colors hover:text-white"
+          >
+            {area.name} 출장안마
+          </Link>
+        ))}
+        <Link
+          href="/regions"
+          className="text-[var(--massage-beige-300)] transition-colors hover:text-white"
+        >
+          부산 전 지역 안내
+        </Link>
+        <Link
+          href="/blog"
+          className="text-[var(--massage-beige-300)] transition-colors hover:text-white"
+        >
+          이용 가이드 칼럼
+        </Link>
+      </nav>
       <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-2 text-sm leading-relaxed sm:text-base">
           <p className="text-lg font-bold text-white" itemProp="name">

@@ -37,8 +37,8 @@ export async function generateMetadata({
   const canonicalUrl = `${SITE_URL}/region-guide/${regionSlug}`;
 
   return {
-    title: `${displayName} 출장 마사지 - 전지역 30분 이내 방문 | ${cityNames}`,
-    description: `${displayName} 전지역 출장 마사지 서비스. ${cityNames} 등 모든 지역에서 30분 이내 신속 방문. 전문 테라피스트의 아로마, 스웨디시 마사지.`,
+    title: `${displayName} 출장마사지 - 전지역 30분 이내 방문 | ${cityNames}`,
+    description: `${displayName} 전지역 출장마사지 서비스. ${cityNames} 등 모든 지역에서 30분 이내 신속 방문. 전문 테라피스트의 아로마, 스웨디시 마사지.`,
     keywords: [
       `${displayName} 출장마사지`,
       ...cities.map((city) => `${city} 마사지`),
@@ -50,7 +50,7 @@ export async function generateMetadata({
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${displayName} 출장 마사지 - 전지역 서비스`,
+      title: `${displayName} 출장마사지 - 전지역 서비스`,
       description: `${displayName} ${cityNames} 등 전지역 30분 이내 방문`,
       type: "website",
       url: canonicalUrl,
@@ -91,7 +91,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
             </div>
           </div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-[var(--massage-brown-900)] sm:text-5xl">
-            {displayName} 출장 마사지
+            {displayName} 출장마사지
           </h1>
           <p className="mb-8 text-lg text-[var(--massage-brown-700)] sm:text-xl">
             서비스를 받으실 시/구를 선택해주세요

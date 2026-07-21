@@ -502,6 +502,6 @@ export function getDongDescription(city: string, dong: string): string {
   const key = `${city}:${dong}`;
   return (
     dongDescriptions[key] ??
-    `${city} ${dong} 지역에서 30분 이내 방문하는 프리미엄 출장 마사지 서비스를 제공합니다. 아로마, 스웨디시 등 다양한 코스를 편안한 내 공간에서 즐기실 수 있습니다.`
+    `${city} ${dong} 지역에서 30분 이내 방문하는 프리미엄 출장마사지 서비스를 제공합니다. 아로마, 스웨디시 등 다양한 코스를 편안한 내 공간에서 즐기실 수 있습니다.`
   );
 }
